@@ -14,5 +14,5 @@ class EventStore():
         return self.__event_store[id_]
 
     def pull_events(self, event_type, since):
-        return [event for i in self.__event_store.values() for event in i
+        return [event for events in self.__event_store.values() for event in events
                 if type(event) is event_type and event.timestamp >= since]
