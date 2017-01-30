@@ -1,16 +1,16 @@
 class Account():
     __balance = 0
 
-    def __init__(self, id):
-        self.id = id
+    def __init__(self, id_):
+        self.id_ = id_
 
     def deposit(self, amount):
-        event = AccountCredited(amount)
+        event = AccountCredited(self.id_, amount)
         self.__apply_change(event)
         return [event]
 
     def withdraw(self, amount):
-        event = AccountDebited(amount)
+        event = AccountDebited(self.id_, amount)
         self.__apply_change(event)
         return [event]
 
@@ -29,11 +29,13 @@ class Account():
 
 class AccountDebited():
 
-    def __init__(self, amount):
+    def __init__(self, account_id, amount):
+        self.account_id = account_id
         self.amount = amount
 
 
 class AccountCredited():
 
-    def __init__(self, amount):
+    def __init__(self, account_id, amount):
+        self.account_id = account_id
         self.amount = amount
