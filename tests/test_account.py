@@ -23,5 +23,15 @@ class TestAccount(TestCase):
         self.assertEqual(events[0].balance, 10)
         self.assertEqual(events[0].account_id, "id")
 
+    def test_calculates_balance(self):
+        account = Account("any_id")
+        account.deposit(100)
+        account.withdraw(60)
+        events = account.deposit(30)
+        self.assertEqual(len(events), 1)
+        self.assertEqual(type(events[0]), AccountCredited)
+        self.assertEqual(events[0].amount, 30)
+        self.assertEqual(events[0].balance, 70)
+
 if __name__ == '__main__':
     unittest.main()
