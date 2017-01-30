@@ -1,6 +1,9 @@
 class Account():
     __balance = 0
 
+    def __init__(self, id):
+        self.id = id
+
     def deposit(self, amount):
         event = AccountCredited(amount)
         self.__apply_change(event)
@@ -18,6 +21,10 @@ class Account():
         elif isinstance(event, AccountDebited):
             self.__balance -= event.amount
             event.balance = self.__balance
+
+    def replay_changes(self, events):
+        for event in events:
+            self.__apply_change(event)
 
 
 class AccountDebited():
