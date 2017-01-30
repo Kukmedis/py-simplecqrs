@@ -1,4 +1,4 @@
-from account import Account
+from simple_accounting.account import Account
 
 
 class AccountHandler():

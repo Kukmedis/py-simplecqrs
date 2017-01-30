@@ -1,5 +1,6 @@
 from datetime import datetime
-from account import AccountDebited, AccountCredited
+
+from simple_accounting.account import AccountDebited, AccountCredited
 
 
 class BalanceSheet():
