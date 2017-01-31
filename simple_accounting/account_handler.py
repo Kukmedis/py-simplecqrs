@@ -8,13 +8,13 @@ class AccountHandler():
 
     def deposit_to_account(self, account_id, amount):
         stored_events = self.event_store.get(account_id)
-        account = Account(account_id).replay_changes(stored_events)
+        account = Account(account_id, stored_events)
         new_events = account.deposit(amount)
         self.event_store.save(new_events)
 
     def withdraw_from_account(self, account_id, amount):
-        stored_events = self.event_store[account_id]
-        account = Account(account_id).replay_changes(stored_events)
-        new_events = account.deposit(amount)
+        stored_events = self.event_store.get(account_id)
+        account = Account(account_id, stored_events)
+        new_events = account.withdraw(amount)
         self.event_store.save(new_events)
 

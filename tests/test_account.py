@@ -33,17 +33,5 @@ class TestAccount(TestCase):
         self.assertEqual(events[0].amount, 30)
         self.assertEqual(events[0].balance, 70)
 
-    def test_replay_changes(self):
-        account = Account("id")
-        deposit_events = account.deposit(70)
-        withdraw_events = account.withdraw(20)
-        recreated_account = Account("id")
-        recreated_account.replay_changes(deposit_events + withdraw_events)
-        events = account.deposit(10)
-        self.assertEqual(len(events), 1)
-        self.assertEqual(type(events[0]), AccountCredited)
-        self.assertEqual(events[0].amount, 10)
-        self.assertEqual(events[0].balance, 60)
-
 if __name__ == '__main__':
     unittest.main()
