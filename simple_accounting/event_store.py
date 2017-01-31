@@ -5,12 +5,13 @@ class EventStore():
 
     __event_store = {}
 
-    def save(self, id_, events):
+    def save_stream(self, id_, events):
         for event in events:
             event.timestamp = datetime.now()
-        self.__event_store[id_] += events
+        old_events = self.__event_store.get(id, [])
+        self.__event_store[id_] = old_events + events
 
-    def get(self, id_):
+    def get_stream(self, id_):
         return self.__event_store[id_]
 
     def pull_events(self, event_type, since):
