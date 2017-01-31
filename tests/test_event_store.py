@@ -25,6 +25,9 @@ class TestEventStore(TestCase):
         event_store.save_stream("id", [MockEvent("yes")])
         self.assertEqual([MockEvent("yes")], event_store.pull_events(MockEvent, since))
 
+    def test_should_provide_empty_stream(self):
+        event_store = EventStore()
+        self.assertEqual([], event_store.get_stream("non_existent"))
 
 if __name__ == '__main__':
     unittest.main()

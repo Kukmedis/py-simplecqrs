@@ -5,11 +5,9 @@ from simple_accounting.account import AccountDebited, AccountCredited
 
 class BalanceSheet():
 
-    __document_store = {}
-
-    __time_last_pulled = datetime.min
-
     def __init__(self, event_store):
+        self.__time_last_pulled = datetime.min
+        self.__document_store = {}
         self.event_store = event_store
 
     def check_for_events(self):

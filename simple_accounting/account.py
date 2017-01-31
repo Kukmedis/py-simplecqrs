@@ -1,10 +1,10 @@
 class Account():
-    __balance = 0
 
     def __init__(self, id_, events=None):
         if events is None:
             events = []
         self.id_ = id_
+        self.__balance = 0
         self.__replay_changes(events)
 
     def deposit(self, amount):
