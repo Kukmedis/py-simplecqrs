@@ -6,7 +6,7 @@ from simple_accounting.event_store import EventStore
 def main():
     event_store = EventStore()
     account_handler = AccountHandler(event_store)
-    balance_sheet = BalanceSheet(EventStore)
+    balance_sheet = BalanceSheet(event_store)
     account_handler.deposit_to_account("ID_1000", 100)
     account_handler.withdraw_from_account("ID_1000", 30)
     account_handler.deposit_to_account("ID_1000", 50)
