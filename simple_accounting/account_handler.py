@@ -17,4 +17,3 @@ class AccountHandler():
         account = Account(account_id, stored_events)
         new_events = account.withdraw(amount)
         self.event_store.save_stream(account_id, new_events)
-
