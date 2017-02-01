@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import time
 
 class EventStore():
 
@@ -10,7 +10,7 @@ class EventStore():
         for event in events:
             event.timestamp = datetime.now()
         old_events = self.__event_store.get(id_, [])
-        self.__event_store[id_] = old_events + events
+        self.__event_store[id_] = events[::-1] + old_events
 
     def get_stream(self, id_):
         return self.__event_store.get(id_, [])
