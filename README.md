@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Kukmedis/py-simplecqrs.svg?branch=master)](https://travis-ci.org/Kukmedis/py-simplecqrs)
 # Simple CQRS application in Python
 ### How it works
 
