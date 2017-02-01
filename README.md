@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Kukmedis/py-simplecqrs.svg?branch=master)](https://travis-ci.org/Kukmedis/py-simplecqrs)
+[![Coverage Status](https://coveralls.io/repos/github/Kukmedis/py-simplecqrs/badge.svg?branch=master)](https://coveralls.io/github/Kukmedis/py-simplecqrs?branch=master)
 # Simple CQRS application in Python
 ### How it works
 
